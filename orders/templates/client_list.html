@@ -1,0 +1,63 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Academic Dons</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="10">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+    {% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+    <div style="background: #0a2535;">
+			<h2 style="font-weight: 20px; color: white; padding: 20px;"> All Clients</h2>
+    </div>
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Customer</th>
+        <th>Country</th>
+        <th>Date Joined</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for admin_clients in admin_client %}
+        <tr>
+            <td>{{admin_clients.id}}</td>
+            <td><a href="{% url 'client' admin_clients.id %}" style="color:#0a2535;">{{admin_clients.name}}</a></td>
+            <td>{{admin_clients.Country}}</td>
+            <td>{{admin_clients.date_joined}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td style="color: green;" colspan="4" >Sorry No Orders To Show<td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+{% endblock content %}

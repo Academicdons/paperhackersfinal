@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paper Hackers</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+<div style="background: #0a2535;">
+			<h2 style="font-weight: 20px; color: white; padding: 20px;"> You can Place your order here</h2>
+    {% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+<table>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{form.as_table }}
+    <button class="btn btn-sm btn-info" input type="submit" name="Place Order" >Place Order</button>
+
+    </form>
+</table>
+
+</body>
+</html>
+{% endblock %}

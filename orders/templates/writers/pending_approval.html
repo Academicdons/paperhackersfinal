@@ -1,0 +1,207 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="{% static 'client/images/logo2.png' %}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'client/s4/dist/css/bootstrap.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="node_modules/open-sans-fontface/open-sans.css">
+    <link rel="stylesheet" href="{% static 'client/css/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/sidebar.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{% static 'client/bs4/dist/css/bootstrap.css ' %}">
+        <link rel="stylesheet" href="{% static 'client/css/style.css' %}' }">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'Helvetica';
+            src: URL('{% static 'client/css/helvetica.ttf' %}') format('truetype');
+        }
+        body{
+            font-family: Helvetica;
+            font-size: 110%;
+        }
+        .bg-base{
+            background: green;
+            color: white;
+        }
+        .light-border{
+            border: 1px solid #E8E8E8;
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        /*
+        Available orders styles
+         */
+        .available-order{
+            border: 1px solid #c0ddf6;
+            background: white;
+        }
+        .available-order label{
+            font-weight: bold;
+        }
+        .available-order .bottom-bar{
+            background: #e9e9e9;
+            color:black;
+        }
+        .title{
+            color: #23c0e9;
+        }
+        .available-order:hover{
+            border: 1px solid #23c0e9;
+        }
+        .available-order:hover .bottom-bar {
+            background: #23c0e9;
+            color: white;
+        }
+        .text-aqua{
+            color: #23c0e9;
+        }
+        .heading:before {
+            content: '';
+            border: 1px solid #23c0e9;
+            width: 15px;
+            position: absolute;
+            bottom: 0px;
+            left: 15px;
+        }
+        .heading:after {
+            content: '';
+            border: 1px solid #23c0e9;
+            width: 40px;
+            position: absolute;
+            bottom: 0px;
+            left: 33px;
+        }
+        .right-side-bar{
+            background: white;
+            min-height: 100vh;
+        }
+        #available_container a{
+            text-decoration: none;
+            color: black;
+        }
+        #available_container label,span{
+            font-size: 14px;
+        }
+        .mini-btn{
+            border-radius: 3px;
+            border: 1px solid #23c0e9;
+            padding: 5px 10px 5px 10px;
+            margin: 1px;
+        }
+        /*
+        pace js css
+         */
+        .pace {
+            -webkit-pointer-events: none;
+            pointer-events: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            z-index: 2000;
+            position: fixed;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            width: 200px;
+            background: #fff;
+            border: 1px solid #29d;
+            overflow: hidden;
+        }
+        .pace .pace-progress {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            max-width: 200px;
+            position: fixed;
+            z-index: 2000;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 100%;
+            height: 100%;
+            width: 100%;
+            background: #29d;
+        }
+        .pace.pace-inactive {
+            display: none;
+        }
+    </style>
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body class="body body-lighten">
+<div class="d-flex" id="wrapper">
+
+
+
+    <!-- website content -->
+    <div class="content">
+
+        <!-- navbar top fixed -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-base">
+
+            <!-- navbar title -->
+            <a class="navbar-brand navbar-link" href="#">Paperhackers</a>
+
+            <!-- navbar sidebar menu toggle -->
+            <span class="navbar-text">
+					<a href="#" id="sidebar-toggle" class="navbar-bars">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</a>
+				</span>
+
+            <!-- navbar dropdown menu-->
+            <div class="collapse navbar-collapse">
+                <div class="dropdown dropdown-logged dropdown-logged-lighten">
+                    <a href="#" data-toggle="dropdown" class="dropdown-logged-toggle dropdown-link">
+                        <span class="dropdown-user text-white float-left">name</span>
+                        <img src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/10_avatar-512.png" alt="avatar" class="dropdown-avatar">
+                    </a>
+                    <div class="dropdown-menu dropdown-logged-menu dropdown-menu-right border-0 dropdown-menu-lighten">
+                        <div class="dropdown-menu-arrow"></div>
+                        <a class="dropdown-item dropdown-logged-item" href="#"><i class="fa fa-user-o" aria-hidden="true"></i>Your profile</a>
+                        <a class="dropdown-item dropdown-logged-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+   <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mt-5 mb-5 p-5">
+                    <div class="alert alert-info">
+                        <p class="font-weight-bold">
+                            Hello ,
+                        </p>
+                        Your account is pending administrator approval. Kindly be patient as we review your test.
+                        You will be contacted in the next fortnight.
+                        Just Pray that all is well
+
+                        <p class="font-weight-bold mt-3">Thank you for your patience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{writer_name}}'s Delivered Orders Dashboard</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+    <style>
+        body{background:#f9f9f9;}
+#wrapper{padding:90px 15px;}
+.navbar-expand-lg .navbar-nav.side-nav{flex-direction: column;}
+.card{margin-bottom: 15px; border-radius:0; box-shadow: 0 3px 5px rgba(0,0,0,.1); }
+.header-top{box-shadow: 0 3px 5px rgba(0,0,0,.1)}
+.leftmenutrigger{display: none}
+@media(min-width:992px) {
+.leftmenutrigger{display: block;display: block;margin: 7px 20px 4px 0;cursor: pointer;}
+#wrapper{padding: 90px 15px 15px 15px; }
+.navbar-nav.side-nav.open {left:0;}
+.navbar-nav.side-nav{background: #585f66;box-shadow: 2px 1px 2px rgba(0,0,0,.1);position:fixed;top:56px;flex-direction: column!important;left:-220px;width:200px;overflow-y:auto;bottom:0;overflow-x:hidden;padding-bottom:40px}
+}
+.animate{-webkit-transition:all .3s ease-in-out;-moz-transition:all .3s ease-in-out;-o-transition:all .3s ease-in-out;-ms-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+
+.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 80px;
+    margin: 0 auto -40px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 80px;
+}
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+.circle-tile-content {
+    padding-top: 50px;
+}
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 5px 0 15px;
+}
+.circle-tile-description {
+    text-transform: uppercase;
+}
+.circle-tile-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 5px;
+    transition: all 0.3s ease-in-out 0s;
+}
+.circle-tile-footer:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+.circle-tile-heading.dark-blue:hover {
+    background-color: #2E4154;
+}
+.circle-tile-heading.green:hover {
+    background-color: #138F77;
+}
+.circle-tile-heading.orange:hover {
+    background-color: #DA8C10;
+}
+.circle-tile-heading.blue:hover {
+    background-color: #2473A6;
+}
+.circle-tile-heading.red:hover {
+    background-color: #CF4435;
+}
+.circle-tile-heading.purple:hover {
+    background-color: #7F3D9B;
+}
+.tile-img {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dark-blue {
+    background-color: #34495E;
+}
+.green {
+    background-color: #16A085;
+}
+.blue {
+    background-color: #2980B9;
+}
+.orange {
+    background-color: #F39C12;
+}
+.red {
+    background-color: #E74C3C;
+}
+.purple {
+    background-color: #8E44AD;
+}
+.dark-gray {
+    background-color: #7F8C8D;
+}
+.gray {
+    background-color: #95A5A6;
+}
+.light-gray {
+    background-color: #BDC3C7;
+}
+.yellow {
+    background-color: #F1C40F;
+}
+.text-dark-blue {
+    color: #34495E;
+}
+.text-green {
+    color: #16A085;
+}
+.text-blue {
+    color: #2980B9;
+}
+.text-orange {
+    color: #F39C12;
+}
+.text-red {
+    color: #E74C3C;
+}
+.text-purple {
+    color: #8E44AD;
+}
+.text-faded {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+</style>
+</head>
+<body>
+ <div id="wrapper" class="animate">
+    <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+      <span class="navbar-toggler-icon leftmenutrigger"></span>
+      <h1><a class="navbar-brand" href="#">Academic Dons</a></h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav animate side-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'writer_dashboard' writers_id %}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li><li class="nav-item animate side-nav">
+            <a class="nav-link" href="">Orders In Progress</a>
+          </li>
+           <li class="nav-item animate side-nav">
+            <a class="nav-link" href="{% url 'writer_delivered_orders' writers_id %}">Delivered Orders</a>
+          </li>
+          <li class="nav-item animate side-nav">
+            <a class="nav-link" href="{% url 'writer_revision_orders' writers_id %}">Revision Orders</a>
+          </li>
+            <li class="nav-item animate side-nav">
+            <a class="nav-link" href="{% url 'writer_cancelled_orders' writers_id %}">Cancelled Orders</a>
+          </li>
+            <li class="nav-item animate side-nav">
+            <a class="nav-link" href="{% url 'writer_completed_orders' writers_id %}">Completed Orders</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="">Check Profile
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+            <li class="nav-item ">
+            <span class="'hello-msg nav-link">Hello, {{writer_name}}</span>
+          </li>
+            <li class="nav-item">
+                <span class="'hello-msg nav-link"><a href="{% url 'writer_logout' %}">Logout</a> </span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+
+     <div class="container">
+         {% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+    <div style="background: #0a2535;">
+			<h2 style="font-weight: 20px; color: white; padding: 20px;"> Howdie {{writer_name}}, These are your Orders in Progress</h2>
+    </div>
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Order Topic</th>
+        <th>Service Type</th>
+        <th>Academic Level</th>
+        <th>Essay Type</th>
+        <th>Pages</th>
+        <th>Deadline</th>
+        <th>Pay</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in Delivered %}
+        <tr>
+          <td>{{i.id}}</td>
+            <td><a href="{% url 'Writer_order_details' i.id %}"> {{i.topic}}</a></td>
+          <td>{{i.show_service_type}}</td>
+          <td>{{i.show_academic_level}}</td>
+          <td>{{i.show_essay_type}}</td>
+          <td>{{i.number_of_pages}}</td>
+          <td>{{i.show_deadline}}</td>
+          <td>{{i.writer_pay}}</td>
+          </tr>
+        {% empty %}
+        <tr>
+            <td style="color: green;" colspan="8" >Sorry No Orders To Show<td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+    </div>
+  </div>
+</body>
+<script>
+    $( document ).ready(function() {
+     $('.leftmenutrigger').on('click', function(e) {
+     $('.side-nav').toggleClass("open");
+     e.preventDefault();
+    });
+});
+</script>
+</html>

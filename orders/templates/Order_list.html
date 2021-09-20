@@ -1,0 +1,71 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Academic Dons</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="10">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  {% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+    <div style="background: #0a2535;">
+			<h2 style="font-weight: 20px; color: white; padding: 20px;"> All Orders</h2>
+    </div>
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th>Order Id</th>
+        <th>Customer</th>
+        <th>Order Topic</th>
+        <th>Service Type</th>
+        <th>Academic Level</th>
+        <th>Essay Type</th>
+        <th>Pages</th>
+        <th>Deadline</th>
+        <th>Order Status</th>
+        <th>Writer</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in order %}
+        <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.customer.name}}</td>
+          <td>{{i.topic}}</td>
+          <td>{{i.service_type}}</td>
+          <td>{{i.academic_level}}</td>
+          <td>{{i.essay_type}}</td>
+          <td>{{i.number_of_pages}}</td>
+          <td>{{i.deadline}}</td>
+          <td>{{i.order_status}}</td>
+          <td>{{i.writer.first_name}}</td>
+          <td>{{i.price}}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+{% endblock content %}

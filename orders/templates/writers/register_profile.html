@@ -1,0 +1,144 @@
+{% extends "writers/base.html" %}
+{% load static %}
+{% block title %}Paperhacker, Create your Account Today{% endblock %}
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Register</div>
+
+                <div class="card-body">
+                    <form method="POST" action="">
+                        <input type="hidden" name="user_type" value="1">
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                        <label for="name" class=" col-form-label text-md-right">Username</label>
+                            <input id="name" type="text" class="form-control" name="name" value="Oldname" required autofocus>
+
+
+                    </div>
+
+                    <div class="form-group col-md-6 col-lg-6 col-sm-12 ">
+                        <label for="email" class="col-form-label text-md-right">Email</label>
+
+
+                            <input id="email" type="email" class="form-control" name="email" value="gihcjaj@gmail.com" required>
+
+
+
+                    </div>
+
+                </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                            <label for="phone_number" class=" col-form-label text-md-right">Phone Number</label>
+
+                                <input id="phone_number" type="text" class="form-control" name="phone_number" value="021651655" required>
+
+
+
+                        </div>
+
+                        <div class="form-group col-md-6 col-lg-6 col-sm-12">
+
+                            <label for="password" class=" col-form-label text-md-right">Password</label>
+
+                            <input id="password" type="password" class="form-control" name="password" required>
+
+
+
+                        </div>
+
+                    </div>
+
+
+                        <div class="row ">
+                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                <label for="password-confirm" class=" col-form-label text-md-right">Confirm Password</label>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+
+                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                <label >Full legal names</label>
+                                <input value="Full name" class="form-control" name="full_name" id="full_name" placeholder="John Doe">
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="row ">
+
+                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                <label for="password-confirm" class=" col-form-label text-md-right">Date of birth</label>
+                                <input id="" value="DOB" type="date" class="form-control" name="date_of_birth" required>
+
+
+                            </div>
+
+                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                <label >Course</label>
+                                <input class="form-control" name="course" value="Course" id="course" placeholder="Computer science">
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="row ">
+
+                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                <label >Education level</label>
+                                <select class="form-control" name="education_level" id="education_level" >
+                                    <option value="5" >PHD</option>
+                                    <option value="4" >Masters</option>
+                                    <option value="3" >University</option>
+                                    <option value="2" >College</option>
+                                    <option value="1" >High school</option>
+                                    <option value="0" >Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6 col-lg-6 col-sm-12">
+                                <p class="small">
+                                    A writers account allows you to bid for orders and earn money from writing
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row mb-0">
+
+                            <div class="col-md-6"> <input class="checkbox" id="terms_conditions"  type="checkbox">   <h6>  By Clicking the here means you agree with the  </h6><a href="">Terms and Conditions.</a> Ensure you confirm before registering
+                            </div>
+                            <div class="col-md-6 ">
+                                <button type="submit" disabled  id="register_button" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+    </div>
+    </div></div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="checkbox"]').click(function(){
+                if($(this).prop("checked") == true){
+                    $('#register_button').removeAttr("disabled");
+                }
+                else if($(this).prop("checked") == false){
+                    $('#register_button').attr("disabled", true);
+                }
+            });
+        });
+    </script>
+ {% endblock %}

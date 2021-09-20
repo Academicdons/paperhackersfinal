@@ -1,0 +1,115 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Please Edit your Profile here</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+.user {
+display:none;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+{% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+  <div style="background: #0a2535;">
+			<h2 style="font-weight: 20px; color: white; padding: 20px;"> Howdie {{writer_pseudo}}, Update your Profile Here</h2>
+    </div>
+  <br>
+  <br>
+  <br>
+
+  <div class="offset-3 col-md-6">
+      <form method= 'POST'>
+    {% csrf_token %}
+      <table>
+  <tr>
+    <td class="user"><label for="inputEmail4">User</label>
+        {{form.user}}</td>
+
+  </tr>
+  <tr>
+    <td><label for="inputEmail4">First Name</label>
+        {{form.first_name}}</td>
+    <td><label for="inputPassword4">Last Name</label>
+      {{form.second_name}}</td>
+  </tr>
+  <tr>
+    <td><label for="inputEmail4">Pseudonym</label>
+        {{form.pseudonym}}</td>
+    <td><label for="inputPassword4">Gender</label>
+      {{form.gender}}</td>
+  </tr>
+  <tr>
+    <td><label for="inputAddress">City</label>
+      {{form.city}}</td>
+    <td><label for="inputAddress">Country</label>
+      {{form.country}}</td>
+  </tr>
+
+    <tr>
+    <td> <label for="inputEmail4">University</label>
+        {{form.university}}</td>
+    <td><label for="inputPassword4">University Department</label>
+      {{form.unidept}}</td>
+</tr>
+          <tr>
+    <td> <label for="inputEmail4">Phone Number</label>
+        {{form.phone}}</td>
+
+</tr>
+     <tr>
+    <td><label for="inputEmail4">Describe yourself</label>
+        {{form.description}}</td>
+         <td><label for="inputEmail4">Your Professional Statement</label>
+        {{form.statement}}</td>
+</tr>
+
+</tr>
+
+
+</table>
+
+
+
+
+<br>
+          <br>
+
+
+    <button type="submit" class="btn btn-success">Update Profile</button>
+
+</form>
+</div>
+</body>
+</html>
+{% endblock %}
+

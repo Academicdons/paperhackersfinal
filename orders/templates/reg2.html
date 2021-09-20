@@ -1,0 +1,112 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <h1>Sign up</h1>
+  {% if form.errors %}
+    <p>
+      Your username and password didn't match.
+      Please try again.
+    </p>
+  {% else %}
+    <p>Please, use the following form to signup:</p>
+  {% endif %}
+  <div class="login-form">
+    <form action="" method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <p><input type="submit" value="Log-in"></p>
+    </form>
+      <p><a href="{% url 'reset_password' %}">Forgotten your
+ password?</a></p>
+      <p>Please, use the following form to Sign-in. If you have an account <a
+href="{% url 'writer_login' %}">login here</a></p>
+  </div>
+<!--{% block content %}-->
+<!--  <h1>Log-in</h1>-->
+<!--                             <div>-->
+<!--                        <p>-->
+<!--                             {% if messages %}-->
+<!--					<ul style="background: white;" class="messages"><h1>Log-in</h1>-->
+<!--  {% if form.errors %}-->
+<!--    <p>-->
+<!--      Your username and password didn't match.-->
+<!--      Please try again.-->
+<!--    </p>-->
+<!--  {% else %}-->
+<!--    <p>Please, use the following form to log-in:</p>-->
+<!--  {% endif %}-->
+<!--  <div class="login-form">-->
+<!--    <form action="" method="post">-->
+<!--      {{ form.as_p }}-->
+<!--      {% csrf_token %}-->
+<!--      <input type="hidden" name="next" value="{{ next }}" />-->
+<!--      <p><input type="submit" value="Log-in"></p>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--					{% for message in messages %}-->
+<!--					<li style="font-weight: 20px; color: black; padding: 20px;" class="{{ message.tags }}">-->
+<!--					{{ message|safe }}-->
+<!--					<a href="#" class="close">x</a>-->
+<!--					</li>-->
+<!--					{% endfor %}-->
+<!--					</ul>-->
+<!--					{% endif %}-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--  <p>Please, use the following form to log-in:</p>-->
+<!--  <form action="." method="post">-->
+<!--    {{ form.as_p }}-->
+<!--    {% csrf_token %}-->
+<!--    <p><input type="submit" value="Log in"></p>-->
+<!--  </form>-->
+<!--{% endblock %}-->
+<!--                        <form id="login-form" class="form" action="" method="post">-->
+<!--                            {% csrf_token %}-->
+<!--                            <div>-->
+<!--                        <p>-->
+<!--                             {% if messages %}-->
+<!--					<ul style="background: white;" class="messages">-->
+<!--					{% for message in messages %}-->
+<!--					<li style="font-weight: 20px; color: black; padding: 20px;" class="{{ message.tags }}">-->
+<!--					{{ message|safe }}-->
+<!--					<a href="#" class="close">x</a>-->
+<!--					</li>-->
+<!--					{% endfor %}-->
+<!--					</ul>-->
+<!--					{% endif %}-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                            <h3 class="text-center text-info">Login</h3>-->
+
+<!--                            <div class="form-group">-->
+<!--                                <label for="email" class="text-info">Email:</label><br>-->
+<!--                                <input type="text" name="email" id="email" class="form-control">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="password" class="text-info">Password:</label><br>-->
+<!--                                <input type="text" name="password" id="password" class="form-control">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>-->
+<!--                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">-->
+<!--                            </div>-->
+<!--                            <div id="register-link" class="text-right">-->
+<!--                                <a href="#" class="text-info">Register here</a>-->
+<!--                            </div>-->
+<!--                        </form>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

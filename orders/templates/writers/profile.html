@@ -1,0 +1,164 @@
+   {% extends "writers/base.html" %}
+{% load static %}
+{% block title %}Paperhacker, Available orders{% endblock %}
+{% block content %}
+   <script>
+<script>
+    $(document).ready(function(){
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove();
+  });
+}, 5000);
+});
+</script>
+
+    <link href="{% static 'clients/plugins/jasny-bootstrap/css/jasny-bootstrap.css')}}" rel="stylesheet" />
+    <style>
+        .field-area{
+            border-bottom: 1px solid darkgray;
+            margin-bottom: 2px;
+        }
+        .field-area .label{
+            font-size: 15px;
+            margin-bottom: 0px !important;
+            color: gray;
+        }
+        label{
+            font-size: 15px;
+        }
+    </style>
+
+
+    <section class="container-fluid content" id="profile_content">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                      {% if messages %}
+					<ul style="background: white;" class="messages">
+					{% for message in messages %}
+					<li style="font-weight: 20px; color: black; padding: 20px;" class="{{ message.tags }}">
+					{{ message|safe }}
+					<a href="" class="close">x</a>
+					</li>
+					{% endfor %}
+					</ul>
+					{% endif %}
+                    <div class="col-sm-3 pb-5">
+
+                        <img src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/10_avatar-512.png" class="img-fluid" alt="">
+
+                        <div class="field-area">
+                            <p class="label"><i class="fa fa-address-card"></i> Full name:</p>
+                            <p class="font-weight-bold">{{request.user.username}}</p>
+                        </div>
+
+                        <div class="field-area">
+                            <p class="label"><i class="fa fa-envelope"></i> Email address:</p>
+                            <p class="font-weight-bold">{{request.user.email}}</p>
+                        </div>
+
+<!--                        <div class="field-area">-->
+<!--                            <p class="label"><i class="fa fa-phone-square"></i> Phone number:</p>-->
+<!--                            <p class="font-weight-bold">07050599550</p>-->
+<!--                        </div>-->
+
+                        <div class="field-area">
+                            <p class="label"><i class="fa fa-google-wallet"></i> Account status:</p>
+                            <p class="font-weight-bold text-success">Active</p>
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-9 border-left">
+<div class="row">
+        <div class="col-sm-12 text-right">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" onclick="location.href='';" class="btn btn-outline-info"><i class="fa fa-user"></i> Basic information</button>
+                <button type="button" onclick="location.href='';" class="btn btn-outline-success"><i class="fa fa-money"></i> Payment information</button>
+            </div>
+        </div>
+        <div class="col-sm-12 mt-3">
+            <h6>Some Stats</h6>
+            <hr>
+            <div class="row">
+
+
+                    <div class="col-sm-4">
+                        <div class="description text-center">
+                    <p>{{writer_decription}} </p>
+                </div>
+                <div>
+                    <h6>{{writer_level}}</h6>
+                     <h5> <span style="color:green;  font-size:25px;">{{Total_Orders_in_progress}}</span> Orders In Progress</h5>
+                                <h5><span style="color:red;  font-size:25px;">{{Total_Orders_in_cancelled}}</span> Cancelled Orders</h5>
+                                <h5><span style="color:blue; font-size:25px;">{{Total_Orders_in_completed}}</span> Completed Orders</h5>
+                                <fieldset class="starability-result mx-auto" data-rating="{{ writers.avg_review }}">
+                                    Rated: {{ get_writer_rating }} stars
+                                </fieldset>
+
+                </div>
+                    </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="{% url 'writer_update_profile' writer_id %}"> <button class="btn-primary btn-sm btn">Update Your Profile</button></a>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+  					<div class="container">
+                        <div style="background: #0a2535;">
+                                <h2 style="font-weight: 20px; color: white; padding: 20px;"> Your Latest completed Orders</h2>
+                        </div>
+                      <table class="table table-striped ">
+                        <thead>
+                          <tr>
+                            <th>Order Id</th>
+                            <th>Service Type</th>
+                            <th>Academic Level</th>
+                            <th>Essay Type</th>
+                            <th>Pages</th>
+                            <th>Deadline</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                             {% for i in writer_orders %}
+                            <tr>
+                              <td>{{i.id}}</td>
+                              <td>{{i.service_type}}</td>
+                              <td>{{i.academic_level}}</td>
+                              <td>{{i.essay_type}}</td>
+                              <td>{{i.number_of_pages}}</td>
+                              <td>{{i.deadline}}</td>
+                              <td><a href="{% url 'update_order' i.id  %}">Update</a></td>
+                              <td><a href="{% url 'delete_order' i.id   %}">Delete</a></td>
+                              </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+
+  				</div>
+  			</div>
+
+            <hr>
+        </div>
+    </div>                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="{% static 'clients/plugins/holder-master/holder.js' %}" type="text/javascript"></script>
+    <script src="{% static 'clients/plugins/jasny-bootstrap/js/jasny-bootstrap.js' %}"></script>
+
+    <script>
+    </script>
+ {% endblock %}

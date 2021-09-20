@@ -1,0 +1,63 @@
+{% extends "writers/base.html" %}
+{% load static %}
+{% block title %}Paperhackers, Payment information{% endblock %}
+{% block content %}
+
+
+
+
+    <div class="container">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3>Payment information</h3>
+            </div>
+            <div class="box-body">
+
+                <form action="" method="post">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">M-Pesa phone number</label>
+                                <input type="text" class="form-control" name="mpesa_number" value="070505550">
+                                <span class="text-danger">error</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Id Number</label>
+                                <input type="text" class="form-control" name="id_number" value="34026536">
+                                <span class="text-danger">Error</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">M-Pesa name</label>
+                                <input type="text" class="form-control" name="mpesa_name" value="Kelvin Wangui">
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Bank name</label>
+                                <input type="text" class="form-control " name="bank_name" value="Kcb">
+                                <span class="text-danger">errors</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Bank account number</label>
+                                <input type="text" class="form-control " name="account_number" value="53454654654654365">
+                                <span class="text-danger">error</span>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">update</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+ {% endblock %}

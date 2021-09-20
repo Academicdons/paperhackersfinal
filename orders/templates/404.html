@@ -1,0 +1,215 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+  <head>
+    <!-- Site Title-->
+    <title>404</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="{% static 'js/html5shiv.min.js' %}"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Header-->
+      <header class="page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-sm-stick-up-offset="62px" data-lg-stick-up-offset="62px" class="rd-navbar">
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a href="index.html"><img src="{% static 'images/logo.jpg' %}" width="236" height="40" alt=""></a></div>
+                <div class="rd-navbar-collapse-wrapper">
+                  <div data-rd-navbar-toggle=".rd-navbar-collapse" class="rd-navbar-collapse-toggle"><span></span></div>
+                  <div class="rd-navbar-collapse">
+                    <div>Advisors at your service 24/7</div><a href="callto:#">1-800-456-78-90</a>
+                  </div>
+                </div>
+              </div>
+              <div class="rd-navbar-nav-wrap">
+                <!-- RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                  <li><a href="./">Home</a></li>
+                  <li><a href="about.html">About Us</a>
+                    <ul class="rd-navbar-dropdown">
+                      <li><a href="#">History</a></li>
+                      <li><a href="#">Fresh</a></li>
+                      <li><a href="#">Archive</a></li>
+                      <li><a href="404.html">404</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="pricing.html">Prices</a></li>
+                  <li><a href="guarantees.html">Guarantees</a></li>
+                  <li><a href="contacts.html">Contact Us</a></li>
+                  <li>
+                    <div class="rd-search-wrapper"><a href="#" data-rd-navbar-toggle=".rd-search" class="rd-search-toggle rd-navbar-fixed--hidden"><span class="material-design-search100 icon"></span><span>Search</span></a>
+                      <!-- RD Search-->
+                      <form action="search-results.html" method="GET" data-search-live="rd-search-results-live" class="rd-search">
+                        <div class="form-group">
+                          <label for="rd-search-form-input" class="form-label">Type and hit enter</label>
+                          <input id="rd-search-form-input" type="text" name="s" autocomplete="off" class="form-control">
+                        </div>
+                        <div id="rd-search-results-live" class="rd-search-results-live rd-navbar-fixed--hidden"></div>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Page Content-->
+      <main class="page-content">
+        <section class="section-top-50 section-bottom-90 bg-steelblue">
+          <div class="shell text-md-left">
+            <div class="range">
+              <div class="cell-md-6"><img src="{% static 'images/404-page-01.png' %}" width="570" height="428" alt="" class="img-responsive center-block"></div>
+              <div class="cell-md-6 cell-md-middle">
+                <h2>
+                  Sorry
+                  <br>
+                  Page not found!
+                </h2>
+                <p class="big">
+                  The page you are looking for might have been removed,
+                  had its name changed, or is temporarily unavailable.
+                  <br>
+                  <br>
+                  Please try using our search box below to look for
+                  information on the website.
+                </p>
+                <!-- RD Search-->
+                <div class="range range-xs-center range-md-left offset-top-30">
+                  <div class="cell-sm-8">
+                    <form action="search-results.html" method="GET" class="rd-search">
+                      <div class="form-group">
+                        <label for="rd-search-form-input-2" class="form-label">Search...</label>
+                        <input id="rd-search-form-input-2" type="text" name="s" autocomplete="off" class="form-control">
+                        <button class="offset-top-30 btn btn-xs btn-default">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Page Footer-->
+      <footer class="page-footer">
+        <div class="shell text-md-left">
+          <div class="range text-md-left">
+            <div class="cell-md-5"><a href="#"><img src="{% static 'images/logo.jpg' %}" width="236" height="40" alt=""></a></div>
+            <div class="cell-md-7 text-md-right cell-md-middle">
+              <ul class="list-inline">
+                <li><a href="#" class="icon icon-nevada fa-instagram"></a></li>
+                <li><a href="#" class="icon icon-nevada fa-facebook-square"></a></li>
+                <li><a href="#" class="icon icon-nevada fa-youtube-square"></a></li>
+                <li><a href="#" class="icon icon-nevada fa-twitter-square"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="range range-xs-center">
+            <div class="cell-xs-6 cell-sm-5 cell-md-2">
+              <p class="text-bold big">Menu</p>
+              <ul class="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Pricing.html">Prices</a></li>
+                <li><a href="Guarantees.html">Guarantees</a></li>
+                <li><a href="Contacts.html">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="cell-xs-6 cell-sm-5 cell-md-3 offset-top-52 offset-xs-top-0">
+              <p class="text-bold big"> Free resources</p>
+              <ul class="list">
+                <li><a href="#">Free essays</a></li>
+                <li><a href="#">Essay tips</a></li>
+                <li><a href="#">Essay types</a></li>
+                <li><a href="#">Plagiarism checker</a></li>
+              </ul>
+            </div>
+            <div class="offset-top-52 offset-md-top-0 cell-xs-6 cell-sm-5 cell-md-3">
+              <p class="text-bold big">Dissertation help</p>
+              <ul class="list">
+                <li><a href="#">Free consultation</a></li>
+                <li><a href="#">Essay examples</a></li>
+                <li><a href="#">Buy essay</a></li>
+                <li><a href="#">Dissertation assistance</a></li>
+                <li><a href="#">Free dissertations</a></li>
+                <li><a href="#">Coursework help</a></li>
+              </ul>
+            </div>
+            <div class="offset-top-52 offset-md-top-0 cell-xs-6 cell-sm-5 cell-md-4">
+              <p class="text-bold big">Address</p><a href="#">
+                28 Jackson Blvd Ste 1020 Chicago
+                <br class="veil reveal-md-block">
+                IL 60604-2340</a>
+              <p class="offset-top-30 text-bold big">Phone</p><a href="callto:#">+1 (234) 567-8901</a>
+            </div>
+          </div>
+          <p class="copyright">Essay Writing ©<span id="copyright-year"></span>All rights reserved. Terms of use | <a href="privacy.html">Privacy Policy</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div id="form-output-global" class="snackbars"></div>
+    <!-- PhotoSwipe Gallery-->
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+            <button title="Share" class="pswp__button pswp__button--share"></button>
+            <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+            <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+          <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__cent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Java script-->
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
+{% endblock %}

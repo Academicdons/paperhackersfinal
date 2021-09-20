@@ -1,0 +1,54 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Academic Dons</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="10">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+                    <div style="background: #0a2535;">
+                            <h4 style="font-weight: 20px; color: white; padding: 20px;"> Support
+                            <span><a class="btn btn-sm btn-success" style="float:right;" href="{% url 'writer' %}">Create Support Rep</a> </span></h4>
+                    </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Phone</th>
+                        <th>Gender</th>
+                        <th>Country</th>
+                        <th>Date Joined</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for admin_Support in admin_Supports %}
+                        <tr>
+                          <td>{{admin_Support.id}}</td>
+                            <td><a href="{% url 'support' admin_Support.id %}" style="color:#0a2535;">{{admin_Support.name}}</a></td>
+                            <td>{{admin_Support.Country}}</td>
+                            <td>{{admin_Support.phone}}</td>
+                            <td>{{admin_writer.gender}}</td>
+                            <td>{{admin_writer.Country}}</td>
+                            <td>{{admin_writer.date_joined}}</td>
+                          </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+
+</body>
+</html>
+{% endblock content %}

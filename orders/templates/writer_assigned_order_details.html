@@ -1,0 +1,287 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+        <title>WriterHackers</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/lightbox/simpleLightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/animate-css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/popup/magnific-popup.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+		<style>
+			.left_details_panel {
+
+			}
+			.left_details {
+				padding-left: 25px;
+				padding-top: 10px;
+				padding-bottom: 15px;
+				font-size: 13px;
+				/*font-weight: 5px*/
+
+
+			}
+			.right_details {
+				padding-left: 5px;
+				padding-top: 10px;
+				padding-bottom: 15px;
+			.
+
+
+			}
+			.right_details_panel {
+
+			}
+			.hr{
+			  margin: 5px auto;
+			   width: 60%;
+			}
+			.quality_btn {
+			  cursor: pointer;
+			  width: 80%;
+			  height: 30px;
+			}
+			.bid_btn {
+			cursor: pointer;
+			  width: 90%;
+			  height: 40px;
+			  padding-top: 100px;
+			  background: #0a2535;
+			  color: white;
+			}
+			.right_order_details{
+			padding-right: 25px;
+			}
+@media only screen and (max-width:350px) {
+    .pan {
+    width:100%;
+    background-color:oink;
+    height:20px;
+}
+}
+@media only screen and (max-width:350px) {
+    .coll {
+    width:70%;
+    background-color:oink;
+    height:20px;
+}
+}
+details > summary {
+  padding: 4px;
+  width: 100%;
+<!--  background-color: #eeeeee;-->
+  border: none;
+  box-shadow: 1px 1px 2px #bbbbbb;
+  cursor: pointer;
+}
+
+details > p {
+  background-color: #eeeeee;
+  padding: 4px;
+  margin: 0;
+  box-shadow: 1px 1px 2px #bbbbbb;
+}
+@media only screen and (max-width: 480px){
+table th td{
+	width: 100% !important;
+	float: left;
+}
+}
+@media only screen and (max-width:350px) {
+.pan {
+width:100%;
+background-color:oink;
+height:20px;
+}
+}
+@media only screen and (max-width:350px) {
+    .coll {
+    width:70%;
+    background-color:oink;
+    height:20px;
+}
+}
+		</style>
+	</head>
+	<body>
+	{% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+		<div style="background: #0a2535;">
+			<h2 style="font-weight: 20px; color: white; padding: 20px;">Order #{{order.id}}</h2>
+		</div>
+		<h3 style="padding-left: 25px;">Order Details:
+
+			<span><p id="date-1" style="float: right; font-size: 15px;"></p></span><h3>
+
+
+			<script>
+			var d = new Date();
+			document.getElementById("date-1").innerHTML = d;
+		</script>
+
+
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="right_order_details">
+					<table >
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Order Status:</td>
+						</th>
+						<th>
+							<td class="right_details pan"><span style="color: #FF0036; padding-left: 10px;">{{order.order_status}}</span><span id="know_more" class="material-icons" style="font-size: 13px; padding-left: 3px;color: green;"></td>
+						</th>
+					</table>
+					<hr class="hr">
+                    <table >
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Topic:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.topic}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Type of Paper:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.show_service_type}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Order Type:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.show_essay_type}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Academic Level:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.show_academic_level}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Subject:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.show_essay_subject}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">No of pages:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.number_of_pages}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Citation Style:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.references}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">No of References:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.number_of_references}}</td>
+						</th>
+					</table>
+					<hr class="hr">
+					<table>
+						<th class="left_details_panel coll">
+							<td class="left_details pan" style="font-size: 20px;">Deadline:</td>
+						</th>
+						<th>
+							<td class="right_details pan">{{order.show_deadline}}</td>
+						</th>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="center_details_panel coll">
+					<div class="right_details_panel " style="padding: 5px;">
+						<h4>Paper Instructions: </h4>
+					</div>
+					<div style="padding: 10px; color: blue;  width: 90%; ">
+						<details>
+					  <summary>{{order.topic}}</summary>
+					  <p>{{order.Paper_Instruction}}</p>
+					</details>
+					</div>
+					<div>
+						<h5>
+							Paper attatchments:
+						</h5>
+						<p style="color: red;">
+							{{order.file_upload}}
+						</p>
+					</div>
+
+					<div>
+						<h5>
+							Paper pay / CPP: <span><p style="color: blue; font-size: 20px;">
+							${{order.writer_pay}} <span><h9 style="font-size: 13px; color: green;">/$ {{order.writer_cpp}}</h9></span>
+						</p></span>
+						</h5>
+
+					</div>
+					 <table style="width:100%">
+                        <tr>
+                          <th >
+                            <input id="type_btn" style="border-radius: 3px; border-style: solid; border-color: green; padding: 3px; padding-bottom: 5px; ; " class="quality_btn" type="button" value="Chat with Client" placeholder="Chat With Client" >
+                          </th>
+                          <th>
+                            <input id="type_btn" style="border-radius: 3px; border-style: solid; border-color: green; border-left: ; padding: 3px;" class="quality_btn" type="button" value="Chat With Support">
+                          </th>
+                        </tr>
+                      </table>
+                      <div style="padding-top: 30px; padding: 40px;">
+						  <a href="{% url 'Complete' order.id %}" id="type_btn" style="border-radius: 3px; border-style: solid; border-color: #0a2535; padding: 10px; " class="bid_btn" type="button" value="Place Bid for this order." placeholder="Chat With Client" >Complete This Order</a>
+                      </div>
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+
+	</body>

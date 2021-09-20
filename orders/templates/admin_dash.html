@@ -1,0 +1,481 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 22px 10px;
+    }
+}
+
+/* Top Navigation */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #1a242f;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    /*border: 1px solid rgba(0,0,0,.15);*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 60px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(0,0,0,.5) solid;
+        overflow-y: auto;
+        background-color: #222;
+        /*background-color: #5A6B7D;*/
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+        border-bottom: 1px rgba(0,0,0,.3) solid;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #1a242f !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+    border-bottom: 1px rgba(0,0,0,.3) solid;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    /*color: #999;*/
+    color: #fff;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+.navbar .nav > li > a > .label {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  min-width: 15px;
+  min-height: 15px;
+  line-height: 1.0em;
+  text-align: center;
+  padding: 2px;
+}
+
+.navbar .nav > li > a:hover > .label {
+  top: 10px;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+    </style>
+     <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Your Graph will look like this"
+	},
+	data: [{
+		type: "line",
+      	indexLabelFontSize: 16,
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520 },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://bryanrojasq.wordpress.com">
+                <img src="http://placehold.it/200x50&text=LOGO" alt="LOGO">
+            </a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+
+             <li><a><i class="fa fa-fw fa-cog"></i> Hello, {{writer_name}}</a></li>
+             <li><a href="{% url 'admin_logout' %}"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="{% url 'admin'  %}" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Home </a>
+                </li>
+                <li>
+                    <a href="{% url 'adminunpaid'  %}" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Unpaid Orders </a>
+                </li>
+                <li>
+                    <a href="{% url 'adminbidded'  %}" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Available Orders</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'admin_progress'  %}" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Orders In Progress</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'admindelivered'  %}" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Delivered Orders</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'adminrevision'  %}" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Revision Orders</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'admincancelled'  %}" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Canceled Orders</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'admincompleted'  %}" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Completed Orders</a>
+
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+<br>
+    <br>
+    <br>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+                        {% if messages %}
+<ul style="background: #0a2535;" class="messages">
+{% for message in messages %}
+<li style="font-weight: 20px; color: white; padding: 20px;" class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">x</a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+             <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="{% url 'adminbidded' %}"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Total Bidded Orders</div>
+          <div class="circle-tile-number text-faded ">{{orders_bidded_count}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="{% url 'admin_progress' %}"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Orders In Progress</div>
+          <div class="circle-tile-number text-faded ">{{orders_assigned_count}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="{% url 'admindelivered'  %}"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Delivered Orders </div>
+          <div class="circle-tile-number text-faded ">{{orders_delivered_count}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="{% url 'adminrevision'  %}"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Orders In Revision </div>
+          <div class="circle-tile-number text-faded ">{{orders_revision_count}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="{% url 'admincancelled'  %}"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Cancelled Orders </div>
+          <div class="circle-tile-number text-faded ">{{ orders_cancelled_count}}</div>
+        </div>
+      </div>
+    </div> <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="{% url 'admincompleted'  %}"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Completed Orders </div>
+          <div class="circle-tile-number text-faded ">{{ orders_completed_count}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+    <br>
+    <br>
+ <div class="row">
+              <div class="column1 column_response">
+
+                <div class="container">
+                    <div style="background: #0a2535;">
+                            <h6 style="font-weight: 20px; color: white; padding: 20px;"> Writers
+                            </h6>
+                    </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Second Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for admin_writer in admin_writers %}
+                        <tr>
+                          <td>{{admin_writer.id}}</td>
+                            <td><a href="" style="color:#0a2535;">{{admin_writer.first_name}}</a></td>
+                            <td>{{admin_writer.second_name}}</td>
+                          </tr>
+                        {% empty %}
+        <tr>
+            <td style="color: green;" colspan="3" >Sorry No Orders To Show<td>
+        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="column2 column_response">
+                 <div class="container">
+                    <div style="background: #0a2535;">
+                            <h6 style="font-weight: 20px; color: white; padding: 20px;"> All Orders
+                                <span><a class="btn btn-sm btn-success" style="float:right;" href="{% url 'admin_order' %}">Add Order</a> </span></h6>
+                    </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Order Id</th>
+                        <th>Tittle</th>
+                        <th>Essay type</th>
+                        <th>No of pages</th>
+                        <th>Writer Pay</th>
+                        <th>Price</th>
+                        <th>Assign Writer</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for admin_orders in admin_order %}
+                        <tr>
+                          <td>{{admin_orders.id}}</td>
+                          <td>{{admin_orders.topic}}</td>
+                          <td>{{admin_orders.show_essay_type}}</td>
+                            <td>{{admin_orders.number_of_pages}}</td>
+                          <td>$ {{admin_orders.writer_pay}}</td>
+                          <td>$ {{admin_orders.calculate_total_price}}</td>
+                          <td><a class="btn btn-sm btn-info" href="{% url 'update_order' admin_orders.id  %}">Assign Writer</a></td>
+                          <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' admin_orders.id  %}">Delete</a></td>
+                          </tr>
+                        {% empty %}
+        <tr>
+            <td style="color: green;" colspan="7" >Sorry No Orders To Show<td>
+        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+            </div>
+
+
+          <div class="container mt-5 mb-5">
+
+</div>
+
+<div class="text-muted mt-5 mb-5 text-center small">by : <a class="text-muted" target="_blank" href="http://totoprayogo.com">totoprayogo.com</a></div>
+
+
+
+
+
+
+              <div class="column2 column_response">
+                 <div class="container">
+                    <div style="background: #0a2535;">
+                            <h6 style="font-weight: 20px; color: white; padding: 20px;"> All Orders
+                                <span><a class="btn btn-sm btn-success" style="float:right;" href="{% url 'admin_order' %}">Add Order</a> </span></h6>
+                    </div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Order Id</th>
+                        <th>Tittle</th>
+                        <th>Pages</th>
+                        <th>Deadline</th>
+                        <th>Price</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for admin_orders in admin_order %}
+                        <tr>
+                          <td>{{admin_orders.id}}</td>
+                          <td>{{admin_orders.topic}}</td>
+                          <td>{{admin_orders.number_of_pages}}</td>
+                          <td>{{admin_orders.deadline}}</td>
+                          <td>{{admin_orders.price}}</td>
+                          <td><a class="btn btn-sm btn-info" href="{% url 'update_order' admin_orders.id  %}">Update</a></td>
+                          <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' admin_orders.id  %}">Delete</a></td>
+                          </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+            </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+<script>
+$(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $(".side-nav .collapse").on("hide.bs.collapse", function() {
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+    });
+    $('.side-nav .collapse').on("show.bs.collapse", function() {
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+    });
+})
+</script>
+</body>
+</html>

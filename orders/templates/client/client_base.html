@@ -1,0 +1,508 @@
+{% load static %}
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <meta name="author" content="Neverest ltd">
+        <meta name="generator" content="Jekyll v3.8.5">
+  <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="HomeWorkPro Writers is taking writing to the next level">
+        <meta name="keywords" content="Writers,Writing,Clients,Order,Clients,HomeworkPro Writers,Homework writers, HomeworkPro">
+        <link rel="icon" type="image/png" href="{% static 'client/images/logo2.png' %}" />
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{% static 'client/bs4/dist/css/bootstrap.css ' %}">
+        <link rel="stylesheet" href="{% static 'client/css/style.css' %}' }">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <style type="text/css">
+            body{
+                font-family: 'Roboto', sans-serif;
+            }
+            .heading{
+                font-family: 'Poppins', sans-serif;
+            }
+            .heading-light{
+                color: green;
+            }
+            .bg-base{
+                background-color: #018021 !important;
+                color: white !important;
+            }
+            .become-writer{
+                background-color: #00ab6b;
+                color: white;
+            }
+            .top-bar-text{
+                font-size: 13px;
+            }
+            .separator{
+                width: 180px;
+                height: 4px;
+                background: orange;
+            }
+            /* STATS */
+            .stats {
+                color: orangered;
+                position: relative;
+                padding-bottom: 25px;
+            }
+            .stats__amount {
+                font-size: 42px;
+                font-weight: bold;
+                line-height: 1.2;
+            }
+            .stats__caption {
+                font-size: 18px;
+            }
+            .stats__change {
+                position: absolute;
+                top: 10px;
+                right: 0;
+                text-align: right;
+                color: #B1B7C8;
+            }
+            .stats__value {
+                font-size: 18px;
+            }
+            .stats__period {
+                font-size: 14px;
+            }
+            .stats__value--positive {
+                color: green;
+            }
+            .stats__value--negative {
+                color: #FB5055;
+            }
+            .stats--main .stats__amount {
+                font-size: 54px;
+            }
+            .partner-img{
+                margin-top: 15px;
+                margin-bottom: 15px;
+                margin-left: 50px;
+                width: 170px;
+                -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+                filter: grayscale(100%);
+            }
+            .about-us{
+                background: #DCDCDC;
+            }
+            .icon{
+                width: 80px;
+                height: 80px;
+                line-height: 50px;
+                font-size: 40px;
+                padding-top: 20px;
+                text-align:center;
+                color: orangered;
+                border-radius: 50%;
+                border: 1px solid green;
+            }
+            .about-title{
+                color: green;
+            }
+            .bottom-list{
+                list-style: none;
+            }
+            .bottom-list a{
+                color: green;
+                font-size:14px;
+            }
+            .table-recent{
+                font-size: 13px !important;
+            }
+            .table-recent thead th{
+                border-top: none !important;
+            }
+            .brnd{
+                color: green !important;
+                font-weight: bold;
+            }
+            .testimonials{
+                background: #00ab6b;
+                color: white;
+            }
+            .deadline-default{
+                color: lightgrey;
+            }
+            .deadline-danger{
+                color: red;
+                animation: blinker 1s linear infinite;
+            }
+            @keyframes blinker {
+                50% {<style type="text/css">
+                    opacity: 0;
+                }
+            }
+            .deadline-warning{
+                color: orange;
+            }
+            .deadline-success{
+                color: forestgreen;
+            }
+            .button {
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                padding: 21px 36px;
+                border: 1px solid #a12727;
+                border-radius: 8px;
+                background: #4aff6e;
+                background: -webkit-gradient(linear, left top, left bottom, from(#4aff6e), to(#26994b));
+                background: -moz-linear-gradient(top, #4aff6e, #26994b);
+                background: linear-gradient(to bottom, #4aff6e, #26994b);
+                text-shadow: #591717 1px 1px 1px;
+                font: normal normal bold 20px arial;
+                color: #ffffff;
+                text-decoration: none;
+            }
+            .button:hover,
+            .button:focus {
+                background: #59ff84;
+                background: -webkit-gradient(linear, left top, left bottom, from(#59ff84), to(#2eb85a));
+                background: -moz-linear-gradient(top, #59ff84, #2eb85a);
+                background: linear-gradient(to bottom, #59ff84, #2eb85a);
+                color: #ffffff;
+                text-decoration: none;
+            }
+            .button:active {
+                background: #2c9942;
+                background: -webkit-gradient(linear, left top, left bottom, from(#2c9942), to(#26994b));
+                background: -moz-linear-gradient(top, #2c9942, #26994b);
+                background: linear-gradient(to bottom, #2c9942, #26994b);
+            }
+            .button:before{
+                content:  "\0000a0";
+                display: inline-block;
+                height: 24px;
+                width: 24px;
+                line-height: 24px;
+                margin: 0 4px -6px -4px;
+                position: relative;
+                top: 0px;
+                left: 0px;
+                background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABi0lEQVRIib2VTUpDQQzHfw4PEelSpCsRBRfq6oEX8ASew2v0CB7BlXgATyBVKiJdKn7golQURKi0VJ26mIyN03nt9FUMhMnLZCbJ/yUZgHNgIPwBHAHLgPkjpg68A13l6NRvasOSMhlQEa4C9+IkV4aUlQ1ggY5wG7gSgw3Z81RKziKe75SDCrNRb45hFt7RPnAAfAL9GR00TaCwDDPIKE8ZsAhsjoPoEdgq6WAPOATOvAP9c1pAD1iS744KwibKPrDLECJ/4QsuxarS24htEeWyNsLm8N8eptVgL7W5vIOfDKxigAflQOtT5BUcvG2gFYPIArcirwf6FNlH3wT6uhRjlbQW6FNoR9YLwOjDOs1rWXNcN6dCNA/siq7h92MRGn6P8Wn5BjVmYpVkcCV6DLzhxvkk7uLekxOG0JpwFsFo4ywUZBkjg+sjq++JHc6AGvAqXMPhW0Rj7WMQ1XBYfgkPRFf0LI6zH8kgA55xeObAthx4UlGZVPtpa9zTNHPp/yEyTP7J4eNeaP8N3MOiAZAY+OMAAAAASUVORK5CYII=") no-repeat left center transparent;
+                background-size: 100% 100%;
+            }
+            .whatsapp-float{
+                position:fixed;
+                width:60px;
+                height:60px;
+                bottom:40px;
+                left:40px;
+                background-color:#25d366;
+                color:#FFF;
+                border-radius:50px;
+                text-align:center;
+                font-size:30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index:100;
+            }
+            .my-float{
+                margin-top:16px;
+            }
+
+            .academic-input{
+            background: white !important;
+            min-height: 50px !important;
+            border-radius: 7px !important;
+            border: 1px solid darkblue;
+            color: black;
+        }
+        .step-area{
+            background: #f5fafe !important;
+            border-radius: 15px;
+        }
+        .step-area label{
+            margin: 0px !important;
+            color: gray;
+            font-size: 13px;
+        }
+        .flat{
+            border-radius: 0px !important;
+        }
+        .curve-left{
+            border-radius: 5px 0px 0px 5px !important;
+        }
+        .input-group-prepend, .input-group-append, .input-group-text{
+            background: white !important;
+            border-color: darkblue;
+            color: darkblue;
+        }
+        #upload-area{
+            min-height: 80px;
+            width: 100%;
+            border: 1px dashed #36ceff;
+            border-radius: 15px;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .active-upload{
+            /*display: none;*/
+        }
+        .error-text{
+            color: red;
+        }
+        /* Style The Dropdown Button */
+.dropbtn {
+  color: black;
+  padding: 9px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+
+    </head>
+
+    <body>
+
+
+    <div class="top-bar bg-base">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="top-bar-text p-2  mb-0"></p>
+                </div>
+                <div class="col-sm-6 float-left">
+                    <ul class="list-inline pt-2 top-bar-text float-right">
+                        <li class="list-inline-item">+254 705059950</li>
+                        <li class="list-inline-item">&copy; Paperhackers</li>
+                        <li class="list-inline-item">| support@paperhackers.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand brnd" href="#">
+            <img src="{% static 'client/images/logo2.png' %}" width="30" height="30" alt=""> Paperhackers
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link fa fa-home" href="">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="">Articles <span class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#about-us">About us</a>-->
+
+<!--                </li>-->
+
+
+
+
+
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                        My account-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                        <a class="dropdown-item" href="">Profile</a>-->
+<!--                    </div>-->
+<!--                </li>-->
+                <div class="dropdown" style="padding-left: 10px; padding-right: 10px;">
+ <button class="dropbtn" tabindex="-1"><span class="fa fa-user" style=" font-size: 18px;"> My Account</span></button>  <div class="dropdown-content">
+                        <li><a href=""><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My Profile</span></a></li>
+  </div>
+</div>
+                <div class="dropdown" style="padding-left: 10px; padding-right: 10px;">
+  <button class="dropbtn" tabindex="-1"><span class="fa fa-spinner" style=" font-size: 18px;"> My Orders</span></button>
+  <div class="dropdown-content">
+      								{% if request.user.is_authenticated %}
+    <li><a href="{% url 'client_unpaid' client_id %}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs link-arrow hidden-sm">Pending</span></a></li>
+                        <li><a href="{% url 'client_paid' client_id %}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Bidding</span></a></li>
+                        <li><a href="{% url 'writer_assigned' client_id %}"><i class="fa fa-spinner" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Assigned</span></a></li>
+                        <li><a href="{% url 'writer_delivered' client_id %}"><i class="fa fa-check" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Delivered</span></a></li>
+                        <li><a href="{% url 'client_revisions' client_id %}"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Revisions</span></a></li>
+                        <li><a href="{% url 'client_completed' client_id %}"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Completed</span></a></li>
+                        <li><a href="{% url 'client_cancelled' client_id %}"><i class="fa fa-times" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cancelled</span></a></li>
+    {% else %}
+          <li><a href="{% url 'client_login' %}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Login</span></a></li>
+								{% endif %}
+
+
+  </div>
+</div>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="" >My orders</a>-->
+<!--                </li>-->
+
+
+                    <li>
+                        <a href="{% url 'order' client_id %}" class="btn btn-success">Place An Order</a>
+                    </li>
+            </ul>
+      								{% if request.user.is_authenticated %}
+
+
+<!--                <a href="" class="btn btn-success my-2 my-sm-0" ><i class="fa fa-user"></i> Register</a>-->
+<!--                <a href="" class="btn btn-warning my-2 my-sm-0 ml-3" ><i class="fa fa-key"></i> Login</a>-->
+                <span id="the_link" class="mr-3"></span>
+                <button class="btn btn-primary"  onclick="generateReferralLink()"> Referral Link</button>
+            <div id="myDIV"style="display:none;" class="my-2 my-sm-0 ml-3">
+  Your Link is<br> <span style="background: green; color: white; padding: 5px;" > https//paperhackers.com/referral/{% block code %}{% endblock %}</span>
+</div>
+<script>
+    function generateReferralLink() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+</script>
+
+
+                <a href="{% url 'client_logout' %}" class="btn btn-default my-2 my-sm-0 ml-3" ><i class="fa fa-power-off"></i> Logout</a>
+
+{% else %}
+
+            <a href="{% url 'client_registration' %}" class="btn btn-success my-2 my-sm-0" ><i class="fa fa-user"></i> Register</a>
+<!--                <a href="" class="btn btn-warning my-2 my-sm-0 ml-3" ><i class="fa fa-key"></i> Login</a>-->
+                <span id="the_link" class="mr-3"></span>
+            <div id="myDIV"style="display:none;" class="my-2 my-sm-0 ml-3">
+</div>
+<script>
+    function generateReferralLink() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+</script>
+
+
+{% endif %}
+
+
+
+
+        </div>
+    </nav>
+
+
+{% block content %}
+
+    {% endblock content %}
+    <footer id="myFooter" class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h2 class="logo"><a href="#"><img src="" class="img-fluid" alt=""></a></h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Sign up</a></li>
+                        <li><a href="">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+
+                    <a href="" type="button" class="btn btn-default">Contact us</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2021 Copyright Text </p>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=+1(919) 588 4106&text=Hello, chat with us." class="whatsapp-float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'client/bs4/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'client/axios.min.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://kit.fontawesome.com/c1a99d9510.js" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{% static 'client/js/sock.min.js' %}"></script>
+    <script src="{% static 'client/js/thunder.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+</html>
